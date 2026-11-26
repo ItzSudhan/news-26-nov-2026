@@ -1,6 +1,6 @@
 # Thursday 26 November 2026: story file
 
-Research ran from 16:21 UTC on 26 Nov 2026 until the edition closed (time printed top right of the page). "First rep." means the date the story was first reported. Times are UTC unless a local time is noted. France 24 live-blog times are Paris time (UTC+1), so they are converted to UTC by subtracting one hour.
+Research ran from 16:21 UTC on 26 Nov 2026 until the edition closed at 17:30 UTC (printed top right of the page). A refresh at 17:30 found no EU summit outcome and no Argentine Senate result yet. "First rep." means the date the story was first reported. Times are UTC unless a local time is noted. France 24 live-blog times are Paris time (UTC+1), so they are converted to UTC by subtracting one hour.
 Tags: **CONFIRMED** (CNF) = 2+ outlets · **OFFICIAL** (OFF) = on the record (government, company, court, state media) · **REPORTED** (REP) = one outlet · **CLAIM** (CLM) = one side's account, worded "X says".
 
 ## Lead cards (1-3)
