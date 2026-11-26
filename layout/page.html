@@ -80,9 +80,11 @@
   #legend div { white-space: nowrap; }
   #briefs { flex: 1; }
   #briefs ol { list-style: none; columns: 2; column-gap: 14px; margin-top: 3px; }
-  #briefs li { font-size: 13.5px; line-height: 14.3px; font-weight: 600; white-space: nowrap; overflow: hidden; break-inside: avoid; display: flex; align-items: center; gap: 4px; }
+  #briefs li { font-size: 13.5px; line-height: 13.3px; font-weight: 600; white-space: nowrap; overflow: hidden; break-inside: avoid; display: flex; align-items: center; gap: 4px; }
   #briefs li .no { display: inline-block; width: 20px; text-align: center; color: #fff; font-size: 11.5px; font-weight: 700; line-height: 13px; border-radius: 2px; flex: none; }
-  #briefs li .tag { flex: none; width: 30px; text-align: center; padding: 0; }
+  #briefs li .tag { flex: none; width: 30px; text-align: center; padding: 0; line-height: 12.5px; }
+  #briefs li .no { line-height: 12.5px; }
+  #briefs ol { margin-top: 2px; }
 
   /* date check */
   #dc { top: 990px; height: 30px; border-top: 3px double var(--rule); font-size: 11.5px; line-height: 13.5px; font-weight: 600; padding-top: 2px; }
@@ -96,7 +98,7 @@
   <div class="flag">WORLD NEWS IN ONE PAGE · THE DAY'S RECORD</div>
   <div class="closed">EDITION CLOSED 16:45 UTC</div>
   <div class="date">THURSDAY 26 NOVEMBER 2026</div>
-  <div class="counts"><b>43 STORIES</b> · <b>10 REGIONS</b> · <b>20 FIELDS</b> · every one first reported Thu 26 Nov 2026</div>
+  <div class="counts"><b>44 STORIES</b> · <b>10 REGIONS</b> · <b>20 FIELDS</b> · every one first reported Thu 26 Nov 2026</div>
   <div class="kicker"><b>LEADING:</b> Iranian drones kill 2 Italians in Kuwait · China, EU, Japan reject US tariff plan · Kim orders wider tactical nukes</div>
 </div>
 
@@ -110,7 +112,7 @@
   <div class="n" style="flex:1.2"><div class="v">3.25%</div><div class="l">new Bank of Korea rate</div></div>
 </div>
 
-<!-- REGION BAR (widths proportional to story counts, 43 total) -->
+<!-- REGION BAR (widths proportional to story counts, 44 total) -->
 <div id="regions" class="abs">
   <div style="flex:5;background:var(--me)">MIDDLE EAST 5</div>
   <div style="flex:8;background:var(--eu)">EUROPE 8</div>
@@ -121,7 +123,7 @@
   <div style="flex:3;background:var(--na)">N. AMER. 3</div>
   <div style="flex:3;background:var(--la)">LAT. AM. 3</div>
   <div style="flex:4;background:var(--oc)">OCEANIA 4</div>
-  <div style="flex:4;background:var(--wo)">WORLD 4</div>
+  <div style="flex:5;background:var(--wo)">WORLD/SPACE 5</div>
 </div>
 
 <!-- LEAD CARDS -->
@@ -144,7 +146,7 @@
     <div class="meta">1 · MIDDLE EAST · KUWAIT <span class="tag CNF">CONFIRMED</span></div>
     <h2>Iranian drone attack on Kuwait kills two Italians</h2>
     <div class="dek">Kuwait says debris from intercepted drones killed them at a military site; Iran denies any role.</div>
-    <div class="why"><b>WHY IT MATTERS</b> Iran war's Gulf strikes now killing European civilians.</div>
+    <div class="why"><b>WHY IT MATTERS</b> Europeans among the dead as drone strikes hit Gulf states.</div>
   </div>
 
   <div class="lead">
@@ -348,7 +350,7 @@
   </div>
 
   <div id="briefs">
-    <div class="sect">ALSO ON THURSDAY <span>· stories 14–43</span></div>
+    <div class="sect">ALSO ON THURSDAY <span>· stories 14–44</span></div>
     <ol>
       <li><span class="no" style="background:var(--me)">14</span><span class="tag OFF">OFF</span>Saudis down 2 Houthi missiles aimed at Riyadh</li>
       <li><span class="no" style="background:var(--me)">15</span><span class="tag CLM">CLM</span>Iran says 2 more tankers hit Hormuz mines</li>
@@ -358,7 +360,7 @@
       <li><span class="no" style="background:var(--eu)">19</span><span class="tag CLM">CLM</span>Russia-held Zaporizhzhia: 5 killed, Moscow says</li>
       <li><span class="no" style="background:var(--eu)">20</span><span class="tag CNF">CNF</span>Depardieu to stand trial for rape</li>
       <li><span class="no" style="background:var(--eu)">21</span><span class="tag REP">REP</span>Farmers protest EU budget cuts in Brussels</li>
-      <li><span class="no" style="background:var(--eu)">22</span><span class="tag REP">REP</span>Kilmar Ábrego García arrives in Spain</li>
+      <li><span class="no" style="background:var(--eu)">22</span><span class="tag REP">REP</span>Russia arrests deputy aerospace forces chief</li>
       <li><span class="no" style="background:var(--af)">23</span><span class="tag CNF">CNF</span>Kenya court rules US Ebola site unconstitutional</li>
       <li><span class="no" style="background:var(--af)">24</span><span class="tag REP">REP</span>Libya enacts Türkiye sea-border deal as law</li>
       <li><span class="no" style="background:var(--sa)">25</span><span class="tag CNF">CNF</span>Karachi collapse: 4 dead, building chief sacked</li>
@@ -380,12 +382,13 @@
       <li><span class="no" style="background:var(--wo)">41</span><span class="tag REP">REP</span>Brent oil rises to about $96 on Hormuz fears</li>
       <li><span class="no" style="background:var(--wo)">42</span><span class="tag OFF">OFF</span>FIFA says cyberattack stole personal data</li>
       <li><span class="no" style="background:var(--wo)">43</span><span class="tag OFF">OFF</span>Sinner ruled out of Australian Open</li>
+      <li><span class="no" style="background:var(--wo)">44</span><span class="tag REP">REP</span>Hera probe images stadium-sized asteroid crater</li>
     </ol>
   </div>
 </div>
 
 <!-- DATE CHECK -->
-<div id="dc" class="abs"><b>DATE CHECK · LEFT OUT, FIRST REPORTED 25 NOV OR EARLIER:</b> Cairo fuel-truck fire (31 dead) · SpaceX 1M-satellite approval · Huawei US conviction · Macy's parade delay · Puerto Rico LUMA ruling · Sudan Blue Nile drone strikes · Pakistan's first astronaut · Savasleyka airbase strike · N. Korea expels Swiss envoy. <b>NOT YET AT CLOSE:</b> NFL &amp; Europa League results, Taiwan vote (Sat), Spain election (Sun).</div>
+<div id="dc" class="abs"><b>DATE CHECK · LEFT OUT, FIRST REPORTED 25 NOV OR EARLIER:</b> Cairo fuel-truck fire (31 dead) · SpaceX satellite approval · Huawei verdict · Macy's parade delay · Netanyahu judges' bribery advice · Ábrego García lands in Spain · Puerto Rico LUMA ruling · Sudan Blue Nile strikes · Pakistani astronaut · Savasleyka strike · Swiss envoy expelled. <b>NOT YET AT CLOSE:</b> NFL results, Taiwan vote (Sat), Spain election (Sun).</div>
 
 </body>
 </html>
