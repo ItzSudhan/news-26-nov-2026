@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thursday 26 November 2026</title>
+<style>
+  :root {
+    --paper: #f5f0e6;
+    --ink: #151515;
+    --muted: #4a4a4a;
+    --rule: #1a1a1a;
+    --red: #b3261e;
+    --cnf: #1d7a3c; --off: #1f4f93; --rep: #a86200; --clm: #7b2d8b;
+    --me: #b3261e; --eu: #2a58a5; --af: #c48410; --sa: #8b5a2b; --ea: #6b2d93;
+    --sea: #11806b; --na: #1d3557; --la: #2e8b3a; --oc: #1789b8; --wo: #3f3f3f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; background: var(--paper); color: var(--ink); }
+  body { font-family: "Avenir Next Condensed", "Helvetica Neue", Arial, sans-serif; position: relative; }
+  .serif { font-family: Georgia, "Times New Roman", serif; }
+  .abs { position: absolute; left: 12px; right: 12px; }
+
+  /* masthead */
+  #mast { top: 4px; height: 110px; border-bottom: 3px double var(--rule); }
+  #mast .flag { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; color: var(--muted); line-height: 14px; }
+  #mast .date { font-family: Georgia, serif; font-weight: 700; font-size: 55px; line-height: 56px; letter-spacing: -0.5px; white-space: nowrap; }
+  #mast .counts { font-size: 19px; font-weight: 700; color: var(--red); line-height: 22px; white-space: nowrap; }
+  #mast .counts b { color: var(--ink); }
+  #mast .kicker { font-size: 14px; line-height: 16px; font-weight: 600; white-space: nowrap; }
+  #mast .kicker b { color: var(--red); letter-spacing: 1px; }
+  #mast .closed { position: absolute; right: 0; top: 0; font-size: 12px; font-weight: 700; color: var(--muted); }
+
+  /* key numbers */
+  #nums { top: 118px; height: 50px; display: flex; gap: 6px; }
+  #nums .n { flex: 1; background: var(--ink); color: #fff; padding: 3px 8px; display: flex; align-items: center; gap: 7px; }
+  #nums .n .v { font-family: Georgia, serif; font-weight: 700; font-size: 29px; line-height: 30px; color: #ffd76a; white-space: nowrap; }
+  #nums .n .l { font-size: 12px; line-height: 13.5px; font-weight: 600; }
+
+  /* region bar */
+  #regions { top: 172px; height: 20px; display: flex; }
+  #regions div { color: #fff; font-size: 11.5px; font-weight: 700; line-height: 20px; text-align: center; white-space: nowrap; overflow: hidden; letter-spacing: 0.3px; }
+
+  /* tags */
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 0 4px; line-height: 14px; border-radius: 2px; letter-spacing: 0.4px; vertical-align: 1px; }
+  .CNF { background: var(--cnf); } .OFF { background: var(--off); } .REP { background: var(--rep); } .CLM { background: var(--clm); }
+
+  /* lead cards */
+  #leads { top: 196px; height: 214px; display: flex; gap: 8px; }
+  .lead { overflow: hidden; }
+  .lead { flex: 1; border-top: 4px solid var(--ink); background: #fffdf8; }
+  .lead svg { display: block; }
+  .meta { font-size: 11.5px; font-weight: 700; letter-spacing: 0.6px; padding: 3px 6px 0; color: var(--muted); white-space: nowrap; }
+  .lead h2 { font-family: Georgia, serif; font-size: 19.5px; line-height: 21.5px; font-weight: 700; padding: 1px 6px 0; }
+  .lead .dek { font-size: 13.5px; line-height: 15.5px; padding: 2px 6px 0; font-weight: 500; }
+  .lead .why { font-size: 12.5px; line-height: 14.5px; padding: 3px 6px 0; font-weight: 600; }
+  .lead .why b { color: var(--red); letter-spacing: 0.5px; }
+
+  /* timeline */
+  #tl { top: 414px; height: 38px; display: flex; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+  #tl .lab { width: 74px; font-size: 13px; font-weight: 800; line-height: 15px; padding: 3px 5px; background: var(--red); color: #fff; letter-spacing: 0.5px; }
+  #tl .ev { flex: 1; padding: 3px 5px 0; border-left: 1px solid #b8b0a0; position: relative; }
+  #tl .ev .t { font-size: 13px; font-weight: 800; line-height: 15px; }
+  #tl .ev .t i { font-style: normal; font-weight: 600; font-size: 11px; color: var(--muted); }
+  #tl .ev .x { font-size: 12px; font-weight: 600; line-height: 14px; white-space: nowrap; }
+
+  /* cards */
+  #cards { top: 457px; height: 282px; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 138px 138px; gap: 6px; }
+  .card { border-top: 3px solid var(--ink); background: #fffdf8; overflow: hidden; }
+  .card svg { display: block; }
+  .card h3 { font-family: Georgia, serif; font-size: 17px; line-height: 18.5px; font-weight: 700; padding: 1px 5px 0; letter-spacing: -0.2px; }
+  .card .dek { font-size: 12.5px; line-height: 14px; padding: 2px 5px 0; font-weight: 500; }
+  .card .meta { font-size: 11px; padding: 2px 5px 0; letter-spacing: 0.3px; }
+
+  /* bottom */
+  #bottom { top: 745px; height: 242px; display: flex; gap: 12px; }
+  #mapbox { width: 340px; }
+  .sect { font-size: 12.5px; font-weight: 800; letter-spacing: 1.5px; border-bottom: 2px solid var(--ink); line-height: 17px; }
+  .sect span { color: var(--red); }
+  #legend { margin-top: 4px; font-size: 11.5px; line-height: 16px; font-weight: 600; }
+  #legend div { white-space: nowrap; }
+  #briefs { flex: 1; }
+  #briefs ol { list-style: none; columns: 2; column-gap: 14px; margin-top: 3px; }
+  #briefs li { font-size: 13.5px; line-height: 14.3px; font-weight: 600; white-space: nowrap; overflow: hidden; break-inside: avoid; display: flex; align-items: center; gap: 4px; }
+  #briefs li .no { display: inline-block; width: 20px; text-align: center; color: #fff; font-size: 11.5px; font-weight: 700; line-height: 13px; border-radius: 2px; flex: none; }
+  #briefs li .tag { flex: none; width: 30px; text-align: center; padding: 0; }
+
+  /* date check */
+  #dc { top: 990px; height: 30px; border-top: 3px double var(--rule); font-size: 11.5px; line-height: 13.5px; font-weight: 600; padding-top: 2px; }
+  #dc b { color: var(--red); letter-spacing: 0.6px; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div id="mast" class="abs">
+  <div class="flag">WORLD NEWS IN ONE PAGE · THE DAY'S RECORD</div>
+  <div class="closed">EDITION CLOSED 16:45 UTC</div>
+  <div class="date">THURSDAY 26 NOVEMBER 2026</div>
+  <div class="counts"><b>43 STORIES</b> · <b>10 REGIONS</b> · <b>20 FIELDS</b> · every one first reported Thu 26 Nov 2026</div>
+  <div class="kicker"><b>LEADING:</b> Iranian drones kill 2 Italians in Kuwait · China, EU, Japan reject US tariff plan · Kim orders wider tactical nukes</div>
+</div>
+
+<!-- KEY NUMBERS -->
+<div id="nums" class="abs">
+  <div class="n"><div class="v">2</div><div class="l">Italians killed in Kuwait drone attack</div></div>
+  <div class="n"><div class="v">14</div><div class="l">economies in proposed US tariff plan</div></div>
+  <div class="n"><div class="v">1M</div><div class="l">Gazans Israel threatens to move south</div></div>
+  <div class="n" style="flex:1.3"><div class="v">12,021</div><div class="l">Ebola cases in DR Congo</div></div>
+  <div class="n"><div class="v">7</div><div class="l">Ukrainian regions hit by power cuts</div></div>
+  <div class="n" style="flex:1.2"><div class="v">3.25%</div><div class="l">new Bank of Korea rate</div></div>
+</div>
+
+<!-- REGION BAR (widths proportional to story counts, 43 total) -->
+<div id="regions" class="abs">
+  <div style="flex:5;background:var(--me)">MIDDLE EAST 5</div>
+  <div style="flex:8;background:var(--eu)">EUROPE 8</div>
+  <div style="flex:3;background:var(--af)">AFRICA 3</div>
+  <div style="flex:3;background:var(--sa)">S. ASIA 3</div>
+  <div style="flex:7;background:var(--ea)">EAST ASIA 7</div>
+  <div style="flex:3;background:var(--sea)">SE ASIA 3</div>
+  <div style="flex:3;background:var(--na)">N. AMER. 3</div>
+  <div style="flex:3;background:var(--la)">LAT. AM. 3</div>
+  <div style="flex:4;background:var(--oc)">OCEANIA 4</div>
+  <div style="flex:4;background:var(--wo)">WORLD 4</div>
+</div>
+
+<!-- LEAD CARDS -->
+<div id="leads" class="abs">
+  <div class="lead">
+    <svg width="327" height="84" viewBox="0 6 327 84">
+      <rect width="327" height="96" fill="#7d1a14"/>
+      <rect width="327" height="96" fill="url(#g1)"/>
+      <!-- drone silhouette -->
+      <g transform="translate(14,14)" fill="#f3d9c9">
+        <polygon points="40,0 80,58 46,50 40,68 34,50 0,58"/>
+        <rect x="36" y="58" width="8" height="10"/>
+      </g>
+      <g stroke="#ffd76a" stroke-width="2" fill="none" opacity="0.8"><path d="M100 70 q 14 -16 0 -32"/><path d="M110 76 q 22 -24 0 -46"/></g>
+      <text x="130" y="62" font-family="Georgia,serif" font-weight="700" font-size="54" fill="#fff">2</text>
+      <text x="166" y="50" font-family="Georgia,serif" font-weight="700" font-size="34" fill="#fff">KILLED</text>
+      <text x="168" y="70" font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="14" fill="#ffd76a">ITALIANS · KUWAIT</text>
+      <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#b3261e" stop-opacity=".9"/><stop offset="1" stop-color="#3a0b08" stop-opacity=".6"/></linearGradient></defs>
+    </svg>
+    <div class="meta">1 · MIDDLE EAST · KUWAIT <span class="tag CNF">CONFIRMED</span></div>
+    <h2>Iranian drone attack on Kuwait kills two Italians</h2>
+    <div class="dek">Kuwait says debris from intercepted drones killed them at a military site; Iran denies any role.</div>
+    <div class="why"><b>WHY IT MATTERS</b> Iran war's Gulf strikes now killing European civilians.</div>
+  </div>
+
+  <div class="lead">
+    <svg width="327" height="84" viewBox="0 6 327 84">
+      <rect width="327" height="96" fill="#2f2f2f"/>
+      <!-- container stack + barrier -->
+      <g transform="translate(14,18)">
+        <rect x="0" y="34" width="46" height="24" fill="#c9481f"/><rect x="48" y="34" width="46" height="24" fill="#2a58a5"/>
+        <rect x="22" y="8" width="46" height="24" fill="#d49a1c"/>
+        <g stroke="#000" stroke-opacity=".35" stroke-width="2"><line x1="8" y1="36" x2="8" y2="56"/><line x1="16" y1="36" x2="16" y2="56"/><line x1="56" y1="36" x2="56" y2="56"/><line x1="64" y1="36" x2="64" y2="56"/><line x1="30" y1="10" x2="30" y2="30"/><line x1="38" y1="10" x2="38" y2="30"/></g>
+        <rect x="-4" y="60" width="104" height="8" fill="#fff"/>
+        <g fill="#b3261e"><rect x="6" y="60" width="12" height="8"/><rect x="30" y="60" width="12" height="8"/><rect x="54" y="60" width="12" height="8"/><rect x="78" y="60" width="12" height="8"/></g>
+      </g>
+      <text x="118" y="68" font-family="Georgia,serif" font-weight="700" font-size="60" fill="#ffd76a">14</text>
+      <text x="190" y="47" font-family="Georgia,serif" font-weight="700" font-size="19" fill="#fff">ECONOMIES</text>
+      <text x="190" y="68" font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="15" fill="#fff">US PLAN: UP TO 20%</text>
+    </svg>
+    <div class="meta">2 · WORLD · TRADE <span class="tag CNF">CONFIRMED</span></div>
+    <h2>China, EU and Japan push back on US tariff plan</h2>
+    <div class="dek">Proposed Section 301 duties of up to 20% could start in January; China "reserves the right" to respond.</div>
+    <div class="why"><b>WHY IT MATTERS</b> Top rates fall on Asia: up to 20% on China and Vietnam.</div>
+  </div>
+
+  <div class="lead">
+    <svg width="327" height="84" viewBox="0 6 327 84">
+      <rect width="327" height="96" fill="#3d1858"/>
+      <!-- missile -->
+      <g transform="translate(30,6) rotate(20 20 42)">
+        <path d="M20 0 C 30 12 30 20 30 30 L30 66 L10 66 L10 30 C10 20 10 12 20 0 Z" fill="#e9e4f0"/>
+        <polygon points="10,52 0,70 10,66" fill="#b3261e"/><polygon points="30,52 40,70 30,66" fill="#b3261e"/>
+        <path d="M14 68 L20 86 L26 68 Z" fill="#ffd76a"/>
+      </g>
+      <circle cx="104" cy="30" r="3" fill="#ffd76a"/><circle cx="96" cy="66" r="2" fill="#ffd76a"/>
+      <text x="110" y="56" font-family="Georgia,serif" font-weight="700" font-size="31" fill="#fff">NUKE PUSH</text>
+      <text x="116" y="76" font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="15" fill="#ffd76a">KCNA · TACTICAL WEAPONS</text>
+    </svg>
+    <div class="meta">3 · EAST ASIA · PYONGYANG <span class="tag OFF">OFFICIAL</span></div>
+    <h2>Kim orders wider tactical nuclear deployment</h2>
+    <div class="dek">State media: Kim says denying North Korea's nuclear status would be "an open declaration of war".</div>
+    <div class="why"><b>WHY IT MATTERS</b> Kim dismisses denuclearisation talk as ignoring "reality".</div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div id="tl" class="abs">
+  <div class="lab">TIMELINE<br>THU, UTC</div>
+  <div class="ev"><div class="t">00:00</div><div class="x">Korea rail work-to-rule</div></div>
+  <div class="ev"><div class="t">c.06:57</div><div class="x">Kharkiv strike: 2 dead</div></div>
+  <div class="ev"><div class="t">07:45</div><div class="x">Bangkok refinery blast</div></div>
+  <div class="ev"><div class="t">c.08:43</div><div class="x">Power cuts in 7 regions</div></div>
+  <div class="ev"><div class="t">c.15:39</div><div class="x">Kyiv claims refinery hit</div></div>
+  <div class="ev"><div class="t">c.15:51</div><div class="x">Trump: told Putin "pull back"</div></div>
+  <div class="ev"><div class="t">c.16:04</div><div class="x">EU picks de Cos for ECB</div></div>
+</div>
+
+<!-- CARDS 4-13 -->
+<div id="cards" class="abs">
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#2a58a5"/>
+      <circle cx="26" cy="25" r="18" fill="#ffd76a"/><text x="26" y="34" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="26" fill="#2a58a5">€</text>
+      <text x="54" y="36" font-family="Georgia,serif" font-weight="700" font-size="30" fill="#fff">DE COS</text></svg>
+    <div class="meta">4 · EUROPE · BRUSSELS <span class="tag OFF">OFFICIAL</span></div>
+    <h3>De Cos to succeed Lagarde at ECB</h3>
+    <div class="dek">EU leaders pick the Spaniard; Lagarde leaves 7 Feb 2027.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#b3261e"/>
+      <g fill="#fff"><path d="M14 8 h6 v22 h7 l-10 14 l-10 -14 h7 z"/><path d="M32 8 h6 v22 h7 l-10 14 l-10 -14 h7 z"/></g>
+      <text x="60" y="37" font-family="Georgia,serif" font-weight="700" font-size="32" fill="#fff">1M</text>
+      <text x="112" y="23" font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#ffd76a">GAZANS</text>
+      <text x="112" y="38" font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#ffd76a">SOUTHWARD</text></svg>
+    <div class="meta">5 · MIDDLE EAST · GAZA <span class="tag OFF">OFFICIAL</span></div>
+    <h3>Israel threatens to move 1m Gazans</h3>
+    <div class="dek">Katz: south, unless Hamas disarms. Strikes kill at least 8.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#1b2f55"/>
+      <g stroke="#cfd8e8" stroke-width="2.5" fill="none"><path d="M10 46 L20 6 L30 46 M13 32 H27 M15 22 H25"/></g>
+      <path d="M38 4 L30 26 H38 L32 46 L48 20 H40 L46 4 Z" fill="#ffd76a"/>
+      <text x="54" y="35" font-family="Georgia,serif" font-weight="700" font-size="23" fill="#fff">7 REGIONS</text></svg>
+    <div class="meta">6 · EUROPE · UKRAINE <span class="tag OFF">OFFICIAL</span></div>
+    <h3>Russian strikes cut power in Ukraine</h3>
+    <div class="dek">Outages in seven regions; two killed in Kharkiv.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#8a5a0a"/>
+      <g stroke="#ffd76a" stroke-width="3"><line x1="24" y1="4" x2="24" y2="46"/><line x1="3" y1="25" x2="45" y2="25"/><line x1="9" y1="10" x2="39" y2="40"/><line x1="39" y1="10" x2="9" y2="40"/></g>
+      <circle cx="24" cy="25" r="13" fill="#c48410" stroke="#ffd76a" stroke-width="3"/>
+      <text x="54" y="37" font-family="Georgia,serif" font-weight="700" font-size="31" fill="#fff">12,021</text></svg>
+    <div class="meta">7 · AFRICA · DR CONGO <span class="tag OFF">OFFICIAL</span></div>
+    <h3>DR Congo's Ebola cases pass 12,000</h3>
+    <div class="dek">5,904 deaths; fighting in east hampers response.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#6b2d93"/>
+      <polyline points="6,42 18,34 28,38 42,14" fill="none" stroke="#ffd76a" stroke-width="4"/><polygon points="36,10 48,8 46,20" fill="#ffd76a"/>
+      <text x="58" y="37" font-family="Georgia,serif" font-weight="700" font-size="32" fill="#fff">3.25%</text></svg>
+    <div class="meta">8 · EAST ASIA · SEOUL <span class="tag OFF">OFFICIAL</span></div>
+    <h3>Bank of Korea raises rates</h3>
+    <div class="dek">Quarter-point hike; 2026 growth outlook now 3.9%.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#0d5e50"/>
+      <rect x="6" y="30" width="16" height="16" fill="#cfd8d4"/><rect x="26" y="24" width="16" height="22" fill="#cfd8d4"/>
+      <path d="M30 24 C22 12 34 8 32 0 C42 8 46 16 38 24 Z" fill="#ff8a1f"/><path d="M33 24 C30 17 36 14 35 9 C40 14 41 19 37 24 Z" fill="#ffd76a"/>
+      <text x="54" y="37" font-family="Georgia,serif" font-weight="700" font-size="30" fill="#fff">7 HURT</text></svg>
+    <div class="meta">9 · SE ASIA · BANGKOK <span class="tag CNF">CONFIRMED</span></div>
+    <h3>Blast hits Bangkok oil refinery</h3>
+    <div class="dek">At least 7 hurt, 4 critically, at Bangchak site.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#11806b"/>
+      <path d="M4 20 L24 6 L44 20 Z" fill="#5b3a1e"/><rect x="12" y="20" width="24" height="10" fill="#2b1a0c"/>
+      <path d="M2 36 q 6 -6 12 0 t 12 0 t 12 0 t 10 0" fill="none" stroke="#bfe9ff" stroke-width="3"/><path d="M2 44 q 6 -6 12 0 t 12 0 t 12 0 t 10 0" fill="none" stroke="#bfe9ff" stroke-width="3"/>
+      <text x="56" y="37" font-family="Georgia,serif" font-weight="700" font-size="29" fill="#fff">13 DEAD</text></svg>
+    <div class="meta">10 · SE ASIA · WEST JAVA <span class="tag OFF">OFFICIAL</span></div>
+    <h3>Indonesia mine flood toll hits 13</h3>
+    <div class="dek">Illegal gold mine near Bogor; search goes on.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#2e8b3a"/>
+      <circle cx="14" cy="25" r="11" fill="#ffd76a"/><circle cx="40" cy="25" r="11" fill="#9fd3ff"/>
+      <path d="M24 12 L30 25 L24 38" fill="none" stroke="#fff" stroke-width="3"/>
+      <text x="56" y="36" font-family="Georgia,serif" font-weight="700" font-size="24" fill="#fff">RECALLED</text></svg>
+    <div class="meta">11 · LAT. AM. · BRAZIL <span class="tag REP">REPORTED</span></div>
+    <h3>Brazil recalls envoy to Argentina</h3>
+    <div class="dek">Milei not invited to Lula's inauguration, UOL says.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#1789b8"/>
+      <path d="M24 46 C8 40 10 24 20 14 C20 24 26 24 26 18 C34 26 40 40 24 46 Z" fill="#ffd76a"/><path d="M24 46 C18 42 18 34 23 30 C24 36 30 36 28 32 C32 38 30 44 24 46 Z" fill="#fff"/>
+      <text x="58" y="37" font-family="Georgia,serif" font-weight="700" font-size="32" fill="#fff">20%</text>
+      <text x="132" y="23" font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#fff">OF GAS</text>
+      <text x="132" y="38" font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#fff">KEPT HOME</text></svg>
+    <div class="meta">12 · OCEANIA · CANBERRA <span class="tag OFF">OFFICIAL</span></div>
+    <h3>Australia passes gas reservation law</h3>
+    <div class="dek">Exporters to keep up to 20% for home use from 2028.</div>
+  </div>
+  <div class="card">
+    <svg width="196" height="50" viewBox="0 0 196 50"><rect width="196" height="50" fill="#3b2450"/>
+      <rect x="18" y="20" width="12" height="26" fill="#f1ece2"/><path d="M24 18 C18 12 24 6 24 2 C30 8 30 14 24 18 Z" fill="#ffd76a"/>
+      <text x="48" y="37" font-family="Georgia,serif" font-weight="700" font-size="31" fill="#fff">1 YEAR</text></svg>
+    <div class="meta">13 · EAST ASIA · HK <span class="tag CNF">CONFIRMED</span></div>
+    <h3>Hong Kong mourns Tai Po fire victims</h3>
+    <div class="dek">First anniversary of the Wang Fuk Court blaze.</div>
+  </div>
+</div>
+
+<!-- BOTTOM: MAP + LEGEND + BRIEFS -->
+<div id="bottom" class="abs">
+  <div id="mapbox">
+    <div class="sect">WHERE IT HAPPENED <span>· pins = stories 1–13</span></div>
+    <svg width="340" height="140" viewBox="-102 -63 260 107" style="display:block;margin-top:3px;background:#d8e6ee">
+      <g fill="#cfc4aa" stroke="#9d9076" stroke-width="0.6">
+        <!-- North America -->
+        <path d="M-130 63 L-130 55 L-124 48 L-124 40 L-118 34 L-114 30 L-110 23 L-105 20 L-97 16 L-92 15 L-87 13 L-83 9 L-78 8 L-83 11 L-84 15 L-88 16 L-88 21 L-91 19 L-97 21 L-97 26 L-94 29.5 L-89 30 L-85 30 L-83 29 L-82 26 L-80 25 L-80 28 L-81 31 L-76 35 L-76 38 L-74 40 L-70 42 L-70 44 L-66 45 L-64 47 L-60 46 L-56 50 L-58 54 L-62 58 L-66 61 L-72 63 Z"/>
+        <!-- Greenland -->
+        <path d="M-52 60 L-42 60 L-30 63 L-60 63 Z"/>
+        <!-- South America -->
+        <path d="M-80 9 L-72 12 L-62 11 L-50 1 L-35 -5 L-39 -15 L-40 -22 L-48 -28 L-58 -38 L-65 -42 L-68 -54 L-74 -50 L-72 -30 L-70 -18 L-81 -6 L-80 1 Z"/>
+        <!-- Eurasia -->
+        <path d="M-10 36 L-9 43 L-2 44 L-5 48 L2 51 L8 54 L10 58 L5 62 L8 63 L60 63 L150 63 L155 60 L160 55 L142 52 L136 44 L130 42 L126 38 L122 30 L120 23 L110 20 L106 12 L109 11 L104 2 L100 6 L98 16 L94 18 L90 22 L86 20 L80 14 L77 8 L73 18 L70 22 L66 25 L58 25 L56 27 L52 29 L48 30 L50 25 L56 24 L59 22 L56 18 L52 16 L44 12 L42 16 L38 22 L35 28 L34 31 L36 36 L30 36 L27 37 L26 40 L22 37 L19 40 L16 41 L12 44 L15 38 L16 38 L12 38 L10 44 L8 44 L3 43 L-2 37 Z"/>
+        <!-- Africa -->
+        <path d="M-17 15 L-17 21 L-13 27 L-10 30 L-6 35 L10 37 L11 33 L20 31 L30 31 L32 31 L35 28 L38 20 L43 12 L51 12 L42 0 L40 -10 L40 -15 L35 -24 L32 -29 L20 -35 L17 -29 L12 -17 L13 -6 L9 4 L-8 4 L-14 9 Z"/>
+        <path d="M44 -13 L50 -15 L47 -25 L44 -22 Z"/>
+        <!-- Britain -->
+        <path d="M-5 50 L1 51 L0 53 L-3 56 L-5 58 L-6 55 L-3 54 Z"/>
+        <!-- Japan -->
+        <path d="M130 31 L135 34 L141 36 L142 40 L141 45 L139 38 L132 34 Z"/>
+        <!-- Indonesia / New Guinea -->
+        <path d="M95 5 L106 -6 L104 -5 L98 2 Z"/><path d="M105 -6 L115 -8 L106 -7 Z"/>
+        <path d="M109 1 L117 7 L119 1 L116 -4 L110 -3 Z"/>
+        <path d="M131 -1 L141 -3 L150 -10 L141 -9 L137 -5 Z"/>
+        <!-- Australia / NZ -->
+        <path d="M114 -22 L122 -18 L130 -12 L137 -12 L142 -11 L146 -19 L153 -26 L150 -37 L141 -38 L131 -31 L115 -34 Z"/>
+        <path d="M172 -34 L178 -38 L174 -41 L167 -46 L171 -44 Z"/>
+      </g>
+      <!-- pins: lon, -lat -->
+      <g font-family="Avenir Next Condensed,Helvetica,sans-serif" font-weight="700" font-size="10" text-anchor="middle">
+        <g transform="translate(-77,-39)"><circle r="6.5" fill="#3f3f3f" stroke="#fff"/><text y="3.5" fill="#fff">2</text></g>
+        <g transform="translate(-48,16)"><circle r="6.5" fill="#2e8b3a" stroke="#fff"/><text y="3.5" fill="#fff">11</text></g>
+        <g transform="translate(4,-51)"><circle r="6.5" fill="#2a58a5" stroke="#fff"/><text y="3.5" fill="#fff">4</text></g>
+        <g transform="translate(33,-50)"><circle r="6.5" fill="#2a58a5" stroke="#fff"/><text y="3.5" fill="#fff">6</text></g>
+        <g transform="translate(32,-30)"><circle r="6.5" fill="#b3261e" stroke="#fff"/><text y="3.5" fill="#fff">5</text></g>
+        <g transform="translate(48,-27)"><circle r="6.5" fill="#b3261e" stroke="#fff"/><text y="3.5" fill="#fff">1</text></g>
+        <g transform="translate(29,1)"><circle r="6.5" fill="#c48410" stroke="#fff"/><text y="3.5" fill="#fff">7</text></g>
+        <g transform="translate(100,-14)"><circle r="6.5" fill="#11806b" stroke="#fff"/><text y="3.5" fill="#fff">9</text></g>
+        <g transform="translate(107,5)"><circle r="6.5" fill="#11806b" stroke="#fff"/><text y="3.5" fill="#fff">10</text></g>
+        <g transform="translate(114,-22)"><circle r="6.5" fill="#6b2d93" stroke="#fff"/><text y="3.5" fill="#fff">13</text></g>
+        <g transform="translate(121,-45)"><circle r="6.5" fill="#6b2d93" stroke="#fff"/><text y="3.5" fill="#fff">3</text></g>
+        <g transform="translate(133,-34)"><circle r="6.5" fill="#6b2d93" stroke="#fff"/><text y="3.5" fill="#fff">8</text></g>
+        <g transform="translate(149,35)"><circle r="6.5" fill="#1789b8" stroke="#fff"/><text y="3.5" fill="#fff">12</text></g>
+      </g>
+    </svg>
+    <div id="legend">
+      <div><span class="tag CNF">CNF</span> CONFIRMED: 2+ outlets report it</div>
+      <div><span class="tag OFF">OFF</span> OFFICIAL: on the record</div>
+      <div><span class="tag REP">REP</span> REPORTED: one outlet</div>
+      <div><span class="tag CLM">CLM</span> CLAIM: one side's account</div>
+    </div>
+  </div>
+
+  <div id="briefs">
+    <div class="sect">ALSO ON THURSDAY <span>· stories 14–43</span></div>
+    <ol>
+      <li><span class="no" style="background:var(--me)">14</span><span class="tag OFF">OFF</span>Saudis down 2 Houthi missiles aimed at Riyadh</li>
+      <li><span class="no" style="background:var(--me)">15</span><span class="tag CLM">CLM</span>Iran says 2 more tankers hit Hormuz mines</li>
+      <li><span class="no" style="background:var(--me)">16</span><span class="tag CNF">CNF</span>Iraq jails 8 French IS members for life</li>
+      <li><span class="no" style="background:var(--eu)">17</span><span class="tag CNF">CNF</span>EU summit split over €45bn Ukraine loan</li>
+      <li><span class="no" style="background:var(--eu)">18</span><span class="tag CLM">CLM</span>Ukraine says its drones hit Krasnodar refinery</li>
+      <li><span class="no" style="background:var(--eu)">19</span><span class="tag CLM">CLM</span>Russia-held Zaporizhzhia: 5 killed, Moscow says</li>
+      <li><span class="no" style="background:var(--eu)">20</span><span class="tag CNF">CNF</span>Depardieu to stand trial for rape</li>
+      <li><span class="no" style="background:var(--eu)">21</span><span class="tag REP">REP</span>Farmers protest EU budget cuts in Brussels</li>
+      <li><span class="no" style="background:var(--eu)">22</span><span class="tag REP">REP</span>Kilmar Ábrego García arrives in Spain</li>
+      <li><span class="no" style="background:var(--af)">23</span><span class="tag CNF">CNF</span>Kenya court rules US Ebola site unconstitutional</li>
+      <li><span class="no" style="background:var(--af)">24</span><span class="tag REP">REP</span>Libya enacts Türkiye sea-border deal as law</li>
+      <li><span class="no" style="background:var(--sa)">25</span><span class="tag CNF">CNF</span>Karachi collapse: 4 dead, building chief sacked</li>
+      <li><span class="no" style="background:var(--sa)">26</span><span class="tag OFF">OFF</span>India's chief justice vows a "people's court"</li>
+      <li><span class="no" style="background:var(--sa)">27</span><span class="tag OFF">OFF</span>Bangladesh speaker makes first Pakistan visit</li>
+      <li><span class="no" style="background:var(--ea)">28</span><span class="tag OFF">OFF</span>Hong Kong October exports jump 65.6%</li>
+      <li><span class="no" style="background:var(--ea)">29</span><span class="tag REP">REP</span>Korean rail union starts work-to-rule</li>
+      <li><span class="no" style="background:var(--ea)">30</span><span class="tag OFF">OFF</span>Taiwan tracks 6 Chinese warships before vote</li>
+      <li><span class="no" style="background:var(--ea)">31</span><span class="tag REP">REP</span>Japan actors' union sets AI voice rules</li>
+      <li><span class="no" style="background:var(--sea)">32</span><span class="tag OFF">OFF</span>Singapore "very disappointed" at US tariffs</li>
+      <li><span class="no" style="background:var(--na)">33</span><span class="tag CLM">CLM</span>Trump says he asked Putin to "pull back"</li>
+      <li><span class="no" style="background:var(--na)">34</span><span class="tag CNF">CNF</span>US stock markets shut for Thanksgiving</li>
+      <li><span class="no" style="background:var(--na)">35</span><span class="tag CNF">CNF</span>Near-9m waves batter California coast</li>
+      <li><span class="no" style="background:var(--la)">36</span><span class="tag OFF">OFF</span>Brazil calls US tariff threat "unacceptable"</li>
+      <li><span class="no" style="background:var(--la)">37</span><span class="tag REP">REP</span>Argentine Senate set to vote on primaries</li>
+      <li><span class="no" style="background:var(--oc)">38</span><span class="tag OFF">OFF</span>French forces seize 3.3t of meth in Pacific</li>
+      <li><span class="no" style="background:var(--oc)">39</span><span class="tag OFF">OFF</span>Flight Centre reports customer data breach</li>
+      <li><span class="no" style="background:var(--oc)">40</span><span class="tag OFF">OFF</span>Australia warned of unusually hot summer</li>
+      <li><span class="no" style="background:var(--wo)">41</span><span class="tag REP">REP</span>Brent oil rises to about $96 on Hormuz fears</li>
+      <li><span class="no" style="background:var(--wo)">42</span><span class="tag OFF">OFF</span>FIFA says cyberattack stole personal data</li>
+      <li><span class="no" style="background:var(--wo)">43</span><span class="tag OFF">OFF</span>Sinner ruled out of Australian Open</li>
+    </ol>
+  </div>
+</div>
+
+<!-- DATE CHECK -->
+<div id="dc" class="abs"><b>DATE CHECK · LEFT OUT, FIRST REPORTED 25 NOV OR EARLIER:</b> Cairo fuel-truck fire (31 dead) · SpaceX 1M-satellite approval · Huawei US conviction · Macy's parade delay · Puerto Rico LUMA ruling · Sudan Blue Nile drone strikes · Pakistan's first astronaut · Savasleyka airbase strike · N. Korea expels Swiss envoy. <b>NOT YET AT CLOSE:</b> NFL &amp; Europa League results, Taiwan vote (Sat), Spain election (Sun).</div>
+
+</body>
+</html>
